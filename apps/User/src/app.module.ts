@@ -1,7 +1,4 @@
 import { Module } from "@nestjs/common";
-import { InteractionModule } from "./interaction/interaction.module";
-import { PreferenceModule } from "./preference/preference.module";
-import { TaskModule } from "./task/task.module";
 import { HealthModule } from "./health/health.module";
 import { PrismaModule } from "./prisma/prisma.module";
 import { SecretsManagerModule } from "./providers/secrets/secretsManager.module";
@@ -14,9 +11,6 @@ import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
 @Module({
   controllers: [],
   imports: [
-    InteractionModule,
-    PreferenceModule,
-    TaskModule,
     HealthModule,
     PrismaModule,
     SecretsManagerModule,
