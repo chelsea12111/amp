@@ -1,0 +1,40 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Interaction {
+  createdAt DateTime  @default(now())
+  id        String    @id @default(cuid())
+  message   String?
+  response  String?
+  timestamp DateTime?
+  updatedAt DateTime  @updatedAt
+  userId    String?
+}
+
+model Preference {
+  context   String?
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+  userId    String?
+  value     Json?
+}
+
+model Task {
+  createdAt   DateTime        @default(now())
+  description String?
+  id          String          @id @default(cuid())
+  status      EnumTaskStatus?
+  updatedAt   DateTime        @updatedAt
+  userId      String?
+}
+
+enum EnumTaskStatus {
+  Option1
+}
